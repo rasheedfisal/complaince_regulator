@@ -49,7 +49,7 @@ export const getAssesmentFn = async (id: string) => {
 
 export const deleteAssesmentFn = async ({ id }: { id: string }) => {
   const response = await privateAuthApi.delete<IResponse<[]>>(
-    `/regulators/assesments/${id}/delete`
+    `/regulators/assesments/${id}`
   );
   return response.data;
 };

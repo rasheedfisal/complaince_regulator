@@ -29,7 +29,7 @@ const ShowControl = ({ data }: PageProps) => {
           <SearchIcon />
         </button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="lg:max-w-screen-md max-w-screen-sm overflow-y-scroll max-h-screen lg:h-5/6">
         <DialogHeader>
           <DialogTitle>Details</DialogTitle>
           <DialogDescription></DialogDescription>
@@ -37,6 +37,10 @@ const ShowControl = ({ data }: PageProps) => {
         <div className="lg:block lg:col-span-1 space-y-2 px-4 py-6  rounded-md bg-white dark:bg-darker">
           <section>
             <div className="flex flex-col space-y-2">
+              <div className="flex gap-3">
+                <label className="text-sm font-medium">Code {":"}</label>
+                <span className="text-sm">{data?.control.code}</span>
+              </div>
               <div className="flex gap-3">
                 <label className="text-sm font-medium">Status {":"}</label>
                 <span className="text-sm">{data?.status ?? "N/A"}</span>
@@ -59,6 +63,11 @@ const ShowControl = ({ data }: PageProps) => {
                   {data?.created_at?.toString() ?? "N/A"}
                 </span>
               </div>
+
+              <label className="text-sm font-medium block">Control {":"}</label>
+              <ScrollArea className="h-72 w-full p-2 rounded-md border">
+                <span className="text-sm">{data?.control.name}</span>
+              </ScrollArea>
 
               <label className="text-sm font-medium block">
                 Feedback {":"}

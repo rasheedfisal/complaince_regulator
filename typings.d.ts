@@ -106,7 +106,6 @@ export interface IControls {
   name: string;
   code: number;
   sub_domain_id: number;
-
   created_at: Date;
   updated_at: Date;
 }
@@ -205,6 +204,7 @@ export interface IAssesmentFullInfo extends IAssesment {
 export interface IAssesmentControlFullInfo extends IAssesmentControl {
   regulator_feedback: string;
   status?: string;
+  control: IControls;
 }
 
 export interface ICreateUpdateAssesment {

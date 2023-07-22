@@ -90,7 +90,7 @@ const Show = ({ params: { id } }: PageProps) => {
         </Link>
       </div>
       <div className="mt-5 space-y-2">
-        <div className="min-w-full rounded gap-5 lg:grid lg:grid-cols-3">
+        <div className="min-w-full rounded gap-5 lg:grid lg:grid-cols-2">
           <div className="lg:block lg:col-span-1 space-y-2 px-4 py-6  rounded-md bg-white dark:bg-darker">
             <section>
               {/* Assesment Details */}
@@ -124,26 +124,8 @@ const Show = ({ params: { id } }: PageProps) => {
                 </div>
               </div>
             </section>
-            <section>
-              {/* Regulator Details */}
-
-              <span className="text-gray-600 font-bold">{"Regulator:"}</span>
-              <Separator className="my-2" />
-              <div className="flex flex-col space-y-2">
-                <div className="flex gap-3">
-                  <label className="text-sm font-medium">Name {":"}</label>
-                  <span className="text-sm">{data?.regulator.name}</span>
-                </div>
-                <div className="flex gap-3">
-                  <label className="text-sm font-medium">
-                    Email Domain {":"}
-                  </label>
-                  <span className="text-sm">
-                    {data?.regulator.email_domain}
-                  </span>
-                </div>
-              </div>
-            </section>
+          </div>
+          <div className="lg:col-span-1 px-4 py-6 rounded-md bg-white dark:bg-darker">
             <section>
               {/* Organization Details */}
 
@@ -162,25 +144,26 @@ const Show = ({ params: { id } }: PageProps) => {
                     {data?.organization.email_domain}
                   </span>
                 </div>
-                <div className="flex gap-3">
+                {/* <div className="flex gap-3">
                   <label className="text-sm font-medium">Code {":"}</label>
                   <span className="text-sm">{data?.organization.code}</span>
-                </div>
+                </div> */}
               </div>
             </section>
           </div>
-
-          <div className="lg:col-span-2 px-4 py-6 rounded-md bg-white dark:bg-darker">
+        </div>
+        <div className="min-w-full rounded gap-5 lg:grid">
+          <div className="px-4 py-6 rounded-md bg-white dark:bg-darker">
             <div className="flex justify-end">
               {/* model goes here */}
               <AddControl />
             </div>
             <ScrollArea className="h-96 w-full rounded-md border">
               <Table className="w-full">
-                <TableCaption>A list of your all controls.</TableCaption>
+                <TableCaption>A list of your controls.</TableCaption>
                 <TableHeader>
                   <TableRow>
-                    <TableHead className="w-[20%]">Feedback</TableHead>
+                    <TableHead>Code</TableHead>
                     <TableHead>Maturity Level</TableHead>
                     <TableHead className="text-center">Status</TableHead>
                     <TableHead>Target Date</TableHead>
@@ -192,7 +175,7 @@ const Show = ({ params: { id } }: PageProps) => {
                   {data?.controls.map((ctl) => (
                     <TableRow key={ctl.id}>
                       <TableCell className="font-medium truncate">
-                        {ctl.regulator_feedback}
+                        {ctl.control.code}
                       </TableCell>
                       <TableCell>{ctl.maturity_level}</TableCell>
                       <TableCell className="text-center">

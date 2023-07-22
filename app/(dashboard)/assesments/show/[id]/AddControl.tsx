@@ -138,7 +138,7 @@ const AddControl = () => {
           <span className="inline-flex align-middle">Add Control</span>
         </button>
       </DialogTrigger>
-      <DialogContent className="xs:max-w-[200px]">
+      <DialogContent className="max-w-screen-sm overflow-y-scroll max-h-screen lg:h-5/6">
         <DialogHeader>
           <DialogTitle>Add Control</DialogTitle>
           <DialogDescription>
