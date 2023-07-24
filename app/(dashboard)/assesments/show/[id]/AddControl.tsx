@@ -26,11 +26,11 @@ import { DocumentPlusIcon } from "@heroicons/react/24/solid";
 import CreateIcon from "@/icons/CreateIcon";
 
 const createControlSchema = object({
-  maturity_level: string().min(1, "Maturity Level is required"),
-  target_date: string()
-    .min(10, "Target Date is required")
-    .optional()
-    .or(z.literal("")),
+  // maturity_level: string().min(1, "Maturity Level is required"),
+  // target_date: string()
+  //   .min(10, "Target Date is required")
+  //   .optional()
+  //   .or(z.literal("")),
   assesment: z.object({
     label: z.string(),
     value: z.string(),
@@ -120,8 +120,8 @@ const AddControl = () => {
     const assesment: ICreateUpdateAssesmentControl = {
       assesment_id: values.assesment.value,
       control_id: values.control.value,
-      maturity_level: values.maturity_level,
-      target_date: values.target_date,
+      // maturity_level: values.maturity_level,
+      // target_date: values.target_date,
     };
     createControl(assesment);
   };
@@ -141,14 +141,7 @@ const AddControl = () => {
       <DialogContent className="max-w-screen-sm overflow-y-scroll max-h-screen lg:h-5/6">
         <DialogHeader>
           <DialogTitle>Add Control</DialogTitle>
-          <DialogDescription>
-            <span className="text-red-600">{errors.assesment?.message}</span>
-            <span className="text-red-600">{errors.control?.message}</span>
-            <span className="text-red-600">
-              {errors.maturity_level?.message}
-            </span>
-            <span className="text-red-600">{errors.root?.message}</span>
-          </DialogDescription>
+          <DialogDescription></DialogDescription>
         </DialogHeader>
         <div className="grid gap-4 py-4">
           <FormProvider {...methods}>
@@ -192,16 +185,16 @@ const AddControl = () => {
                   isRtl={false}
                 />
               </div>
-              <div className="grid grid-cols-1">
+              {/* <div className="grid grid-cols-1">
                 <FormInput
                   label="Maturity Level"
                   type="text"
                   name="maturity_level"
                 />
-              </div>
-              <div className="grid grid-cols-1">
+              </div> */}
+              {/* <div className="grid grid-cols-1">
                 <FormInput label="Target Date" type="date" name="target_date" />
-              </div>
+              </div> */}
               <DialogFooter>
                 {/* <div className="flex"> */}
                 <SubmitButton

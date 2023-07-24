@@ -20,7 +20,7 @@ import DeleteIcon from "@/icons/DeleteIcon";
 import { useMutation } from "@tanstack/react-query";
 import { toast } from "react-toastify";
 import { deleteAssesmentFn } from "@/api/assessmentsApi";
-
+import AssesmentBadge from "@/components/AssesmentBadge";
 const Index = () => {
   const token = Cookies.get("AT");
   const router = useRouter();
@@ -83,6 +83,15 @@ const Index = () => {
         },
       ],
       columnDefs: [
+        {
+          targets: [3],
+          createdCell: (td, cellData, rowData) =>
+            createRoot(td).render(
+              <div className="flex">
+                <AssesmentBadge status={cellData ?? "N/A"} />
+              </div>
+            ),
+        },
         {
           targets: [6],
           createdCell: (td, cellData, rowData) =>

@@ -215,6 +215,6 @@ export interface ICreateUpdateAssesment {
 export interface ICreateUpdateAssesmentControl {
   assesment_id: string;
   control_id: string;
-  maturity_level: string;
+  maturity_level?: string;
   target_date?: string;
 }

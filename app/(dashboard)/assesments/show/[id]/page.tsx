@@ -22,6 +22,8 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { ChevronDoubleLeftIcon } from "@heroicons/react/24/solid";
 import ShowControl from "./ShowControl";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import AssesmentBadge from "@/components/AssesmentBadge";
 
 type PageProps = {
   params: {
@@ -108,7 +110,7 @@ const Show = ({ params: { id } }: PageProps) => {
                 </div>
                 <div className="flex gap-3">
                   <label className="text-sm font-medium">Status {":"}</label>
-                  <span className="text-sm">{data?.status}</span>
+                  <AssesmentBadge status={data?.status ?? "N/A"} />
                 </div>
                 <div className="flex gap-3">
                   <label className="text-sm font-medium">Due Date {":"}</label>
@@ -131,23 +133,29 @@ const Show = ({ params: { id } }: PageProps) => {
 
               <span className="text-gray-600 font-bold">{"Organization:"}</span>
               <Separator className="my-2" />
-              <div className="flex flex-col space-y-2">
-                <div className="flex gap-3">
-                  <label className="text-sm font-medium">Name {":"}</label>
-                  <span className="text-sm">{data?.organization.name}</span>
-                </div>
-                <div className="flex gap-3">
-                  <label className="text-sm font-medium">
-                    Email Domain {":"}
-                  </label>
-                  <span className="text-sm">
-                    {data?.organization.email_domain}
-                  </span>
-                </div>
-                {/* <div className="flex gap-3">
+              <div className="flex justify-start gap-3">
+                <Avatar>
+                  <AvatarImage src={data?.organization.logo} />
+                  <AvatarFallback>CN</AvatarFallback>
+                </Avatar>
+                <div className="flex flex-col space-y-2">
+                  <div className="flex gap-3">
+                    <label className="text-sm font-medium">Name {":"}</label>
+                    <span className="text-sm">{data?.organization.name}</span>
+                  </div>
+                  <div className="flex gap-3">
+                    <label className="text-sm font-medium">
+                      Email Domain {":"}
+                    </label>
+                    <span className="text-sm">
+                      {data?.organization.email_domain}
+                    </span>
+                  </div>
+                  {/* <div className="flex gap-3">
                   <label className="text-sm font-medium">Code {":"}</label>
                   <span className="text-sm">{data?.organization.code}</span>
                 </div> */}
+                </div>
               </div>
             </section>
           </div>
@@ -158,6 +166,7 @@ const Show = ({ params: { id } }: PageProps) => {
               {/* model goes here */}
               <AddControl />
             </div>
+
             <ScrollArea className="h-96 w-full rounded-md border">
               <Table className="w-full">
                 <TableCaption>A list of your controls.</TableCaption>
@@ -179,7 +188,7 @@ const Show = ({ params: { id } }: PageProps) => {
                       </TableCell>
                       <TableCell>{ctl.maturity_level}</TableCell>
                       <TableCell className="text-center">
-                        {ctl.status ?? "N/A"}
+                        <AssesmentBadge status={ctl.status ?? "N/A"} />
                       </TableCell>
                       <TableCell>
                         {ctl.target_date?.toString() ?? "N/A"}
