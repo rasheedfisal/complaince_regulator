@@ -13,6 +13,7 @@ import {
 import { IAssesmentControlFullInfo } from "@/typings";
 import SearchIcon from "@/icons/SearchIcon";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import AssesmentBadge from "@/components/AssesmentBadge";
 
 type PageProps = {
   data: IAssesmentControlFullInfo;
@@ -43,7 +44,7 @@ const ShowControl = ({ data }: PageProps) => {
               </div>
               <div className="flex gap-3">
                 <label className="text-sm font-medium">Status {":"}</label>
-                <span className="text-sm">{data?.status ?? "N/A"}</span>
+                <AssesmentBadge status={data?.status ?? "N/A"} />
               </div>
               <div className="flex gap-3">
                 <label className="text-sm font-medium">
