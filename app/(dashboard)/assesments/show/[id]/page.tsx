@@ -134,19 +134,18 @@ const Show = ({ params: { id } }: PageProps) => {
               <span className="text-gray-600 font-bold">{"Organization:"}</span>
               <Separator className="my-2" />
               <div className="flex justify-start gap-3">
-                <Avatar>
-                  <AvatarImage src={data?.organization.logo} />
+                <Avatar className="h-24 w-24">
+                  <AvatarImage
+                    className="h-24 w-24"
+                    src={data?.organization.logo}
+                  />
                   <AvatarFallback>CN</AvatarFallback>
                 </Avatar>
                 <div className="flex flex-col space-y-2">
                   <div className="flex gap-3">
-                    <label className="text-sm font-medium">Name {":"}</label>
                     <span className="text-sm">{data?.organization.name}</span>
                   </div>
                   <div className="flex gap-3">
-                    <label className="text-sm font-medium">
-                      Email Domain {":"}
-                    </label>
                     <span className="text-sm">
                       {data?.organization.email_domain}
                     </span>
