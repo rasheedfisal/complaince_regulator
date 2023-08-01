@@ -9,6 +9,7 @@ type IFormSelectProps = {
   data: ISelectData[];
   isRtl: boolean;
   isMulti: boolean;
+  defaultValue?: string;
 };
 
 export interface ISelectData {
@@ -23,6 +24,7 @@ const FormSelect: FC<IFormSelectProps> = ({
   data,
   isRtl = false,
   isMulti = false,
+  defaultValue = "",
 }) => {
   const {
     control,
@@ -50,6 +52,7 @@ const FormSelect: FC<IFormSelectProps> = ({
             isRtl={isRtl}
             isClearable={true}
             isLoading={isLoading}
+            defaultValue={defaultValue}
             // styles={{
             //   control: (baseStyles, state) => ({
             //     ...baseStyles,

@@ -7,9 +7,9 @@ import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import { resetPasswordFn } from "@/api/authApi";
 import { useMutation } from "@tanstack/react-query";
 
-import FormInput2 from "../../../../../components/FormInput2";
-import SubmitButton from "../../../../../components/SubmitButton";
-import useUpdateEffect from "../../../../../hooks/useUpdateEffect";
+import FormInput2 from "@/components/FormInput2";
+import SubmitButton from "@/components/SubmitButton";
+import useUpdateEffect from "@/hooks/useUpdateEffect";
 import { IResetPassword } from "@/typings";
 type PageProps = {
   params: {

@@ -10,6 +10,7 @@ import {
   InboxIcon,
   InboxStackIcon,
   RectangleGroupIcon,
+  UserGroupIcon,
 } from "@heroicons/react/24/solid";
 
 interface ILinksII {
@@ -33,6 +34,11 @@ export const links: ILinksII[] = [
     title: "Assesments",
     path: "/assesments",
     icon: <RectangleGroupIcon className="w-5 h-5" />,
+  },
+  {
+    title: "Staff",
+    path: "/staff",
+    icon: <UserGroupIcon className="w-5 h-5" />,
   },
   // {
   //   title: "Regulators",

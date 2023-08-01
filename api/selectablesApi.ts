@@ -56,3 +56,18 @@ export const getAssesmentListFn = async () => {
   );
   return response.data;
 };
+export const getContributionRolesListFn = async () => {
+  const response = await privateAuthApi.get<IResponse<string[]>>(
+    `/selectables/contribution-roles`
+  );
+  return response.data;
+};
+
+type Staff = IUser & { user_id: string };
+
+export const getAllStaffListFn = async () => {
+  const response = await privateAuthApi.get<IResponse<Staff[]>>(
+    `/regulators/staff`
+  );
+  return response.data;
+};
