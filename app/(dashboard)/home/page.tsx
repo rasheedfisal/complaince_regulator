@@ -14,7 +14,6 @@ import {
 } from "chart.js";
 import { Bar, Doughnut, Line } from "react-chartjs-2";
 
-import { USDollar } from "@/api/currencyFormatter";
 import { useStateContext } from "@/context/AppConext";
 
 ChartJS.register(
@@ -180,9 +179,7 @@ const Home = () => {
               <h6 className="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light">
                 Earnings
               </h6>
-              <span className="text-xl font-semibold">
-                {USDollar.format(1200)}
-              </span>
+              <span className="text-xl font-semibold">{"$1200"}</span>
               <span className="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md">
                 +4.4%
               </span>
